@@ -1,191 +1,146 @@
-import React, { useState } from 'react';
-import { Home, PawPrint, BrainCircuit, Baby, Menu, X } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raised with Heart. Rooted in Nature.</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom font-family for headings */
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom font-family for body text */
+        .font-sans {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="font-sans bg-[#F5F0E8] text-[#465945]">
 
-// Helper to combine Tailwind classes
-const cn = (...classes) => classes.filter(Boolean).join(' ');
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto">
 
-// --- Color Palette ---
-// Green: #465846 (A bit softer than pure forest green)
-// Cream: #F5F1E9
-// Dark Text: #333333
-// Accent/Off-white: #FDFDFC
+        <!-- Hero Section -->
+        <section class="relative h-[70vh] md:h-[90vh] flex items-center justify-center text-center text-white p-6 bg-gray-800">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2070&auto=format&fit=crop" 
+                     alt="A Toller dog standing in a lush green field at dusk" 
+                     class="w-full h-full object-cover opacity-50"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x800/2c3e50/ffffff?text=Toller+in+Field';">
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight">
+                    Raised with Heart.<br>Rooted in Nature.
+                </h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+                    Soft, slow-living Tollers bred for work, companionship, and the wild.
+                </p>
+                <!-- Arrow Down Icon -->
+                <div class="absolute bottom-[-10vh] left-1/2 -translate-x-1/2">
+                    <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+            </div>
+        </section>
 
-// --- Font Imports (in index.html or via a service) ---
-// For headings: 'Playfair Display', serif
-// For body: 'Inter', sans-serif
+        <!-- Quick Look Section -->
+        <section class="bg-[#EFEAE2] py-20 px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-serif text-4xl md:text-5xl text-center mb-16 text-[#465945]">Quick Look</h2>
+                
+                <!-- Grid Container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                    
+                    <!-- About Us Card -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <!-- SVG Icon: Home -->
+                            <svg class="w-10 h-10 text-[#465945]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl mb-2">About Us</h3>
+                            <p class="text-base leading-relaxed">
+                                Nestled on a quiet mountain slope, our Tollers are raised in our home and on our land full of texture, birdsong, and barefoot mornings.
+                            </p>
+                        </div>
+                    </div>
 
-// --- Icon Component ---
-const InfoCard = ({ icon, title, children }) => (
-  <div className="flex flex-col items-center md:items-start text-center md:text-left p-4">
-    <div className="mb-4 text-[#465846]">{icon}</div>
-    <h3 className="font-serif text-2xl text-[#333333] mb-2">{title}</h3>
-    <p className="text-[#555] leading-relaxed max-w-xs">{children}</p>
-  </div>
-);
+                    <!-- Meet the Dogs Card -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <!-- SVG Icon: Paw Print -->
+                            <svg class="w-10 h-10 text-[#465945]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path d="M11.25 3.25c.18-.42.56-.75 1-.75s.82.33 1 .75l1.5 3.5 3.85.56c.49.07.87.49.87.99s-.38.92-.87.99l-3.85.56-1.5 3.5c-.18.42-.56.75-1 .75s-.82-.33-1-.75l-1.5-3.5-3.85-.56c-.49-.07-.87-.49-.87-.99s.38-.92-.87-.99l3.85-.56 1.5-3.5z"/>
+                                <path fill-rule="evenodd" d="M9.41 15.59a1 1 0 00-1.41 1.41l-1.59 1.59a1 1 0 000 1.41l5.09 5.09a1 1 0 001.41 0l5.09-5.09a1 1 0 000-1.41l-1.59-1.59a1 1 0 10-1.41-1.41l-1.59 1.59a1 1 0 01-1.41 0l-1.59-1.59z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl mb-2">Meet the Dogs</h3>
+                            <p class="text-base leading-relaxed">
+                                Carefully selected lineage. Balanced temperaments. Each one our heart dog.
+                            </p>
+                            <a href="#" class="inline-block mt-2 text-[#465945] font-medium hover:underline">read more &rarr;</a>
+                        </div>
+                    </div>
 
-// --- Header Component ---
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navLinks = ["Our Philosophy", "Our Dogs", "Puppies", "Contact"];
+                    <!-- Puppy Raising Card -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <!-- SVG Icon: Brain -->
+                            <svg class="w-10 h-10 text-[#465945]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.998 15.998 0 011.622-3.385m5.043.025a15.998 15.998 0 001.622-3.385m3.388 1.62a15.998 15.998 0 00-1.622-3.385m-5.043.025a15.998 15.998 0 01-3.388-1.62m7.5 0a15.998 15.998 0 00-3.388-1.62m-5.043.025a15.998 15.998 0 01-1.622-3.385m3.388 1.62a15.998 15.998 0 01-1.622-3.385" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl mb-2">Puppy Raising</h3>
+                            <p class="text-base leading-relaxed">
+                                ENS, sound desensitization, bird drive development.
+                            </p>
+                        </div>
+                    </div>
 
-  return (
-    <header className="absolute top-0 left-0 right-0 z-20 bg-transparent text-white">
-      <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
-        <a href="#" className="font-serif text-2xl lg:text-3xl font-bold tracking-wider">
-          Shireway Tollers
-        </a>
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a key={link} href="#" className="hover:text-gray-300 transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-white">
-              {link}
-            </a>
-          ))}
-        </div>
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} aria-label="Open menu">
-            <Menu size={28} />
-          </button>
-        </div>
-      </nav>
-      {/* Mobile Menu */}
-      <div
-        className={cn(
-          "fixed top-0 left-0 w-full h-full bg-[#465846] text-white transform transition-transform duration-300 ease-in-out md:hidden",
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        )}
-      >
-        <div className="flex justify-end p-6">
-          <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-            <X size={30} />
-          </button>
-        </div>
-        <div className="flex flex-col items-center justify-center h-full -mt-16 space-y-8">
-          {navLinks.map((link) => (
-            <a key={link} href="#" onClick={() => setIsOpen(false)} className="text-3xl font-serif">
-              {link}
-            </a>
-          ))}
-        </div>
-      </div>
-    </header>
-  );
-};
+                    <!-- Upcoming Litters Card -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <!-- SVG Icon: Plant -->
+                            <svg class="w-10 h-10 text-[#465945]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25c-2.488 0-4.506 2.018-4.506 4.506s2.018 4.506 4.506 4.506 4.506-2.018 4.506-4.506S14.488 8.25 12 8.25z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.963 0-9-4.037-9-9s4.037-9 9-9 9 4.037 9 9-4.037 9-9 9zM12 3.75c-4.556 0-8.25 3.694-8.25 8.25s3.694 8.25 8.25 8.25 8.25-3.694 8.25-8.25S16.556 3.75 12 3.75z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75v-1.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl mb-2">Upcoming Litters</h3>
+                            <p class="text-base leading-relaxed">
+                                Accepting applications for Fall 2025. Early inquiries.
+                            </p>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="bg-[#465945] text-white text-center p-6">
+            <p>&copy; 2024 Your Kennel Name. All Rights Reserved.</p>
+        </footer>
 
-// --- Hero Section ---
-const Hero = () => (
-  <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white">
-    {/* Background Image with Dark Overlay */}
-    <div className="absolute inset-0 z-0">
-      <img
-        src="http://googleusercontent.com/file_content/1"
-        alt="A Toller running in a field with its handler"
-        className="w-full h-full object-cover"
-        onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1920x1080/465846/F5F1E9?text=Image+Not+Found'; }}
-      />
-      <div className="absolute inset-0 bg-black/40"></div>
     </div>
 
-    {/* Content */}
-    <div className="relative z-10 text-center px-4">
-      <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-4" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.6)'}}>
-        Bred with Purpose.
-      </h1>
-      <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-8" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.6)'}}>
-        Raised with Heart.
-      </h2>
-      <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-        Shireway Tollers: For field, family, and lifelong adventure.
-      </p>
-    </div>
-
-    {/* Scroll Down Indicator */}
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center items-start p-1">
-            <div className="w-1 h-2 bg-white rounded-full animate-bounce"></div>
-        </div>
-    </div>
-  </section>
-);
-
-// --- Intro Section ---
-const Intro = () => (
-  <section className="bg-[#F5F1E9] py-20 md:py-32">
-    <div className="container mx-auto px-6">
-      <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl md:text-5xl text-[#333333]">A Glimpse Into Our World</h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
-        <InfoCard icon={<Home size={40} strokeWidth={1.5} />} title="Our Philosophy">
-          Nestled in the mountains, Shireway Tollers are raised underfoot in our home. We believe in nurturing sound temperaments through a life rich with nature, family, and intention.
-        </InfoCard>
-        <InfoCard icon={<PawPrint size={40} strokeWidth={1.5} />} title="Meet Our Dogs">
-          Our dogs are selected for health, conformation, and the biddable, classic Toller temperament. They are cherished members of our family first. <a href="#" className="text-[#465846] font-semibold hover:underline">Learn their stories →</a>
-        </InfoCard>
-        <InfoCard icon={<BrainCircuit size={40} strokeWidth={1.5} />} title="Puppy Foundation">
-          From ENS to comprehensive sound and texture exposure, our puppies begin life with a foundation of confidence and curiosity, ready for any path.
-        </InfoCard>
-        <InfoCard icon={<Baby size={40} strokeWidth={1.5} />} title="Upcoming Litters">
-          Accepting applications for our planned Autumn 2025 litter. We are seeking dedicated homes that align with our values. <a href="#" className="text-[#465846] font-semibold hover:underline">Inquire Here →</a>
-        </InfoCard>
-      </div>
-    </div>
-  </section>
-);
-
-// --- Content Section ---
-const ContentSection = () => (
-  <section className="bg-[#FDFDFC] py-20 md:py-32">
-    <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16">
-      <div className="w-full md:w-1/2">
-        <img 
-          src="https://placehold.co/800x1000/D1D5DB/333333?text=Toller+Portrait" 
-          alt="A beautiful Toller posing" 
-          className="rounded-lg shadow-xl w-full h-auto object-cover"
-          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/800x1000/D1D5DB/333333?text=Image+Not+Found'; }}
-        />
-      </div>
-      <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="font-serif text-4xl md:text-5xl text-[#333333] mb-6">Rooted in Home</h2>
-        <p className="text-[#555] leading-relaxed mb-4">
-          Our puppies don't start in a kennel; they start in our living room, woven into the fabric of our daily lives. They are raised with the daily rhythms of family, ensuring they grow into well-adjusted, confident companions.
-        </p>
-        <p className="text-[#555] leading-relaxed mb-8">
-          We believe the best dogs are raised with a deep connection to both people and place. Our focus is on producing Tollers that are not only beautiful examples of the breed, but are sound in mind and body—eager to work, ready to explore, and devoted to their families.
-        </p>
-        <a href="#" className="bg-[#465846] text-white font-bold py-3 px-8 rounded-lg hover:bg-[#3a4d39] transition-colors duration-300 shadow-lg">
-          Learn About Our Process
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-
-// --- Footer ---
-const Footer = () => (
-  <footer className="bg-[#465846] text-[#F5F1E9] py-12">
-    <div className="container mx-auto px-6 text-center">
-      <p className="font-serif text-2xl mb-4">Shireway Tollers</p>
-      <p className="mb-4">Located in the heart of the mountains.</p>
-      <p>&copy; {new Date().getFullYear()} Shireway Tollers. All Rights Reserved.</p>
-    </div>
-  </footer>
-);
-
-
-// --- Main App Component ---
-export default function App() {
-  return (
-    <div className="bg-[#FDFDFC] font-sans">
-      <Header />
-      <main>
-        <Hero />
-        <Intro />
-        <ContentSection />
-      </main>
-      <Footer />
-    </div>
-  );
-}
+</body>
+</html>
 
